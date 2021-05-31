@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG</title>
+  <style>
+  .shapes {
+    width: 600px;
+    height: 400px;
+    background: #ddd;
+    /* svg내부 요소(도형)는 fill로 컬러를 채우는 게 맞지만, svg태그의 경우 내부 요소를 감싸고 있는 컨테이너 영역에 해당하기에 background로 배경색을 지정해 주어도 된다.*/
+  }
+  rect{
+      fill:orange;
+      stroke: dodgerblue;
+      /* svg = border x stroke o */
+      stroke-width: 10;
+      /* stroke-width 의 기본 단위는 px */
+  }
+  ellipse{
+      /* 스타일을 태그에 직접 적용 가능 */
+      /* 태그에 직접 적용한 스타일보다 css로 적용한 스타일이 우선적용 됨. */
+      /* fill: dodgerblue; */
+  }
+  
+  </style>
+</head>
+<body>
+    <svg class="shapes">
+        <!-- 사각형 -->
+        <!-- <rect x="10" y="20" width="200" height="100"></rect> -->
+        <rect x="10" y="20" width="200" height="100"/>
+        <!-- rx ry = 모서리가 둥근 사각형 rx=x축 방향의 꼭짓점의 반지름. ry=y축 방향의 꼭짓점의 반지름.-->
+        <rect x="50" y="200" rx="10" ry="10" width="100" height="100"/>
+        <!-- 원 -->
+        <!-- 원의 좌표는 x,y가 아닌 circle X = cx, circle Y =cy 원의 중앙 좌표로 표현-->
+        <!-- 크기는 r(= radius 반지름)로 표현 -->
+        <circle cx="350" cy="250" r="30"></circle>
+        <!-- 타원 -->
+        <ellipse cx="200" cy="350" rx="100" ry="40" fill="dodgerblue"></ellipse>
+    </svg>
+</body>
+</html>
