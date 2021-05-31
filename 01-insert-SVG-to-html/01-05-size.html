@@ -12,13 +12,18 @@
     svg {
       /* width: 500px;
       height: 500px; */
-      background: #ddd;
+      /* width,height 미설정 시 svg는 반응형으로 적용. */
+      background: #eee;
+
     }
   </style>
 </head>
 <body>
-  <svg viewBox="0 0 500 500">
-    <rect x="0" y="0" width="100" height="100"></rect>
+  <svg viewBox="0 0 120 120">
+    <!-- view Box="x,y,w,h" -->
+    <!-- view Box 에 w,h크기를 지정하면 내부 요소의 크기는 뷰 박스를 기준, 상대적으로 적용이 된다. -->
+    <rect x="0" y="0" width="100" height="100"></rect> <!-- 뷰박스에 크기 지정을 안했을 때는 px단위로, 했을때는 뷰박스와 상대적인 단위로 설정된다. -->
+
   </svg>
 </body>
 </html>
