@@ -24,11 +24,37 @@
       /* 태그에 직접 적용한 스타일보다 css로 적용한 스타일이 우선적용 됨. */
       /* fill: dodgerblue; */
   }
-  
+  path{
+      stroke:tomato;
+      stroke-width: 5;
+      fill: transparent;
+  }
+  .stroke{
+      stroke-width: 20;
+      /* stroke-linecap 선의 양 끝 모양 설정 */
+      /* default */
+      /* stroke-linecap: butt ; */
+      /* 선의 양 끝이 둥근 모양*/
+      stroke-linecap: round ; 
+      /* 선의 양 끝이 정사각인 모양 */
+      /* stroke-linecap: square ;  */
+      /*  stroke-linejoin 선과 선 사이 이음새의 모양 설정 */
+      /* default */
+      /* stroke-linejoin: miter; */
+      /* 선의 이음새가 둥글림 처리 된 모양 */
+      /* stroke-linejoin: round; */
+      /* 선의 이음새가 직선으로 깎인 모양 */
+      stroke-linejoin: bevel;
+  }
+  .grp-1{
+      fill:turquoise;
+
+  }
   </style>
 </head>
 <body>
-    <svg class="shapes">
+    <!-- svg는  xhtml스펙을 따르고 있기 떄문에 반드시  xmlns 속성으로 네임스페이스를 지정해 주어야 함 -->
+    <svg class="shapes" xmlns="http://www.w3.org/2000/svg">
         <!-- 사각형 -->
         <!-- <rect x="10" y="20" width="200" height="100"></rect> -->
         <rect x="10" y="20" width="200" height="100"/>
@@ -40,6 +66,28 @@
         <circle cx="350" cy="250" r="30"></circle>
         <!-- 타원 -->
         <ellipse cx="200" cy="350" rx="100" ry="40" fill="dodgerblue"></ellipse>
+        <!-- 직선 -->
+        <!-- x1 = 선의 시작점, x2 = 선의 끝점/ y1 = 선의 시작점, y2 = 선의 끝점 -->
+        <line x1="10" x2="400" y1="30" y2="300" stroke="blue" ></line>
+        <!-- 직선을 계속 잇는 선 -->
+        <!-- points 점의 위치를 이음 x1 y1 , x2 y2, x3 y3 ... -->
+        <!-- <polyline points="0 50, 130 220, 100 380" stroke="red"  stroke-width="3"></polyline> -->
+        <!-- 다각형 -->
+        <!-- polyline과 다른점을 끝점을 시작점에 맞추어 온전한 다각형을 그려냄. (선의 마무리 유무) -->
+        <polygon points="0 50, 130 220, 100 380" stroke="red"  stroke-width="3"></polygon>
+        <!-- 어떤 모양이든 그려낼 수 있음  M 위치 이동(x y) L 직선(x y) H 가로직선(X) V세로직선(Y) Z 선닫기=시작점과 잇기-->
+        <!-- path직선 -->
+        <path d="M 300 200 L 500 100 H 50 V 300 Z"></path>
+        <!-- path 곡선. 베지어 곡선으로 시작점, 끝점, 핸들 필요  M 위치 이동(x y) C 곡선(시작점xy 핸들xy 끝점xy)  -->
+        <path d="M 500 300 C 500 100, 30 400, 100 150 "></path>
+        <!-- stroke control -->
+        <path class="stroke" d="M 250 300 L 340 320 L 310 350" ></path>
+        <!-- 그룹 -->
+        <g class="grp-1">
+            <circle cx="480" cy="100" r="20"></circle>
+            <circle cx="440" cy="40" r="30"></circle>
+        </g>
+        
     </svg>
 </body>
 </html>
