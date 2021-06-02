@@ -1,12 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571 625.5">
+  <!-- 그라데이션도 어떤 요소를 참조해서 적용하기 때문에  defs 사용 -->
   <defs>
-    <linearGradient id="hair-color">
+  <!-- linearGradient 선형 그라디언트 -->
+  <!-- radialGradient 선형 그라디언트 -->
+  <!-- gradientTransform을 사용하여 Transform 속성으로 변형 가능-->
+    <linearGradient id="hair-color" gradientTransform="rotate(90) ">
+    <!-- stop태그를 사용. offset=위치. 0% = 시작지점. stop-color로 컬러 지정 -->
       <stop offset="0%" stop-color="yellow"/>
-      <stop offset="50%" stop-color="hotpink"/>
+      <stop offset="50%" stop-color="red"/>
       <stop offset="100%" stop-color="deepskyblue"/>
     </linearGradient>
     <!--radialGradient-->
     <style>
+    <!-- defs에서 적용한 그라디언트를 연결하는 방법. fill의 url형태로 넣어준다. -->
+    <!-- <![CDATA[[]> = css,javascript를 svg내부에서 사용할 때 사용 / 파서오류 방지 -->
       <![CDATA[
       .hair {
         fill: url('#hair-color');
