@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SVG</title>
+  <style>
+  body {
+    /* margin: 0; */
+    width: 100%;
+    height: 100%;
+    background: url(images/face_s.svg);
+    background-size: 50px;
+    overflow-x: hidden;
+  }
+  div{
+      width: 50%;
+      height: 50%;
+  }
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* width: 500px;
+    height: 500px; */
+    width: 100%;
+    height: 100%;
+    background: #ddd;
+  }
+  .pattern-circle{
+      fill:rebeccapurple;
+  }
+  .bg-rect{
+      /* fill:url(#bg-pattern) */
+  }
+  .card{
+      width: 60vw;
+      height: auto;
+      border: 4px solid black;
+      border-radius: 2rem;
+      background:white;
+      margin: 10vh auto;
+      padding: 2rem;
+      overflow-y: auto;
+  }
+  h1 ,p{
+      margin: 0;
+  }
+  </style>
+</head>
+<body>
+    <div style="display:none">
+        <svg viewBox="0 0 1000 1000">
+            <!-- 패턴역시 defs안에서 (참조) -->
+          <defs>
+              <!-- pattern x,y위치와 width height 설정 필요 0.1 = 패턴 한개의 요소의 크기는 1/10 크기로 가로세로 10개씩 들어갈 것 -->
+              <pattern id="bg-pattern" x="0" y="0" width="0.1" height="0.1">
+                  <!-- 패턴 내부에 반복할 요소 넣기 -->
+                  <circle cx="50" cy="50" r="50" class="pattern-circle"></circle>
+              </pattern>
+          </defs>
+          <rect class="bg-rect" x="0" y="0" width="100%" height="100%" fill="url(#bg-pattern)"></rect>
+        </svg>
+    </div>
+    <div class="card">
+        <h1>hello</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio aliquid architecto obcaecati quasi cum quae accusamus consectetur ullam iusto ratione maiores impedit, illo sint quod nostrum cumque magnam, eaque dolor.
+        Aperiam, pariatur totam deserunt harum laudantium sunt maiores expedita delectus consequatur praesentium aspernatur quas. Nihil minima officiis, totam pariatur debitis ipsam, quos culpa ea qui consequuntur molestiae fugit. Quo, magni.
+        Minus, deleniti facere cum voluptatibus quidem ab dignissimos maiores quis aliquid, velit expedita vitae quibusdam. Ea hic quod, eum voluptatibus placeat adipisci earum corrupti, saepe sequi voluptatem nostrum accusamus culpa?
+        Omnis sit repudiandae incidunt, eveniet obcaecati deserunt ratione! Ipsam delectus soluta at accusamus aliquam qui asperiores eos aut deserunt. Voluptatum cupiditate magnam eveniet, culpa vero nihil. Error laboriosam voluptate atque?
+        Natus quod ea rerum, laborum sapiente et mollitia veritatis asperiores aliquam! In quae consectetur deleniti ex vitae nam, maiores temporibus pariatur, sunt, rem fugit exercitationem blanditiis! Magni eaque rem eligendi.</p>
+    </div>
+</body>
+</html>
