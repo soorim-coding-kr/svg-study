@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SMIL study</title>
+		<style>
+			body {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<svg class="svg" viewBox="0 0 1000 1000">
+			<defs>
+				<!-- 클릭 시 애니메이션 시작 -->
+				<script>
+					window.addEventListener('DOMContentLoaded',()=>{ const rectElem =
+					document.querySelector('.rect'); const aniElem =
+					document.querySelector('.ani'); rectElem.addEventListener('click',
+					()=>{ aniElem.beginElement(); }); });
+				</script>
+			</defs>
+			<rect class="rect" x="10" y="10" width="20%" height="20%">
+				<!-- 
+                    <animate> 태그를 사용하여 애니메이션 세팅 
+                    attributeName : 변경할 속성
+                    dur(=duration) : 재생시간
+                    to : 옮길 위치 ( 10 → 700 )
+                    repeatCount : 반복횟수. 무한반복은 repeatCount="indefinite"
+                    fill : 마지막 상태. freeze=멈춤, 
+					begin : 언제 실행할건지 = delay. begin="indefinite" 설정 시 시작하지 않음
+					 = alternate
+                -->
+				<!-- <animate
+					class="ani"
+					attributeName="x"
+					dur="1s"
+					to="700"
+					repeatCount="1"
+					fill="freeze"
+					begin="indefinite"
+				></animate> -->
+				<!--
+				 alternate 와 같이 왔다갔다 반복 하는 속성 지정하기.
+				'to' 를 'value'로 변경. 시작위치, 중간위치, 종료위치 세팅
+				value="시작위치; 중간위치; 종료위치;"
+				keyTimes : keyframe (=timeline)같은 개념
+				keyTimes="시작; 중간; 끝" 
+				(값의 갯수는 얼마든지 늘릴 수 있음)
+			-->
+				<animate
+					class="ani"
+					attributeName="x"
+					dur="2s"
+					values="0; 700; 0"
+					keyTimes="0; 0.5; 1"
+					repeatCount="indefinite"
+					fill="freeze"
+					begin="indefinite"
+				></animate>
+			</rect>
+		</svg>
+		<svg
+			id="Layer_1"
+			data-name="Layer 1"
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 684 684"
+		>
+			<defs>
+				<style>
+					.cls-1 {
+						fill: #7429a7;
+					}
+				</style>
+			</defs>
+			<title>Morphing Effect</title>
+			<!--Morphing 효과를 만들려면, 패스 갯수가 유지가 되어야 함. 기존 패스를 추가하는게 아니라 기존의 점이 이동하는 형태. -->
+			<path
+				class="cls-1"
+				d="M282,192s-96-20-131,56c0,0-39,105,38,157,0,0,22,51,17,88,0,0-20,117,91,142,0,0,273,77,243-181,0,0-10-93,49-137,0,0,134-101-34-193,0,0-112-62-211,43C344,167,320,205,282,192Z"
+				transform="translate(-42 -42)"
+			>
+				<!-- d 속성을 변경 -->
+				<animate
+					attributeName="d"
+					dur="3s"
+					to="M282,142s-96,30-131,106c0,0-109,105-32,157,0,0,22,51,17,88,0,0,50,117,161,142,0,0,373,77,343-181,0,0-10-93,49-137,0,0,34-101-134-193,0,0-112-112-211-7C344,117,320,155,282,142Z"
+					fill="freeze"
+				></animate>
+			</path>
+		</svg>
+	</body>
+</html>
