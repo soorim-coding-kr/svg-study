@@ -25,7 +25,22 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+@keyframes icon-ani-bounce {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(0.3em);
+	}
+}
 
+.icon-red {
+	color: red !important;
+}
+.icon-ani-bounce {
+	display: inline-block;
+	animation: icon-ani-bounce 0.5s alternate infinite;
+}
 .icon-face:before {
 	content: '\e900';
 }
